@@ -3,7 +3,7 @@ const prisma = new PrismaClient()
 
 async function createPlayerController(req, res) {
     try {
-        const { name, lvl, age, hp, money, xp, playerClass, historyId } = req.body;
+        const { name, lvl, age, hp, money, xp, playerClass, historyId, status} = req.body;
         const newPlayer = await prisma.player.create({
             data: {
                 name,
@@ -14,6 +14,7 @@ async function createPlayerController(req, res) {
                 xp,
                 playerClass,
                 historyId: historyId,
+                status,
             },
         });
 
