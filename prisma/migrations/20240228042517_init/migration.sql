@@ -4,7 +4,9 @@ CREATE TABLE "History" (
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "gameMaster" TEXT NOT NULL,
-    "date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "deletedAt" DATETIME
 );
 
 -- CreateTable
@@ -17,6 +19,10 @@ CREATE TABLE "Player" (
     "hp" INTEGER NOT NULL,
     "money" INTEGER NOT NULL,
     "xp" INTEGER NOT NULL,
-    "playerClass" TEXT NOT NULL,
+    "class" TEXT NOT NULL,
+    "status" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "deletedAt" DATETIME,
     CONSTRAINT "Player_historyId_fkey" FOREIGN KEY ("historyId") REFERENCES "History" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );

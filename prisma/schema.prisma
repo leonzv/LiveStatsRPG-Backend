@@ -15,7 +15,9 @@ model History {
   name        String
   description String
   gameMaster  String
-  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
 
   players Player[]
 }
@@ -30,6 +32,10 @@ model Player {
   money       Int
   xp          Int
   playerClass String
+  status      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
 
   history History @relation(fields: [historyId], references: [id])
 }
